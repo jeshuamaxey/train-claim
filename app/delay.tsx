@@ -4,6 +4,7 @@ import { useRouter, useLocalSearchParams } from 'expo-router'
 import { Alert } from 'react-native'
 import * as WebBrowser from 'expo-web-browser'
 import { DelayCard } from '../components/DelayCard'
+import { ErrorDisplay } from '../components/ErrorDisplay'
 import { DelayInfo, Service } from '../types'
 import { getServiceMetrics } from '../lib/api/darwin'
 import { calculateDelay } from '../lib/delay-calc'
@@ -115,11 +116,11 @@ export default function DelayScreen() {
 
   if (error) {
     return (
-      <YStack flex={1} padding="$4" gap="$4">
-        <Text color="$red10" fontSize="$4">
-          {error}
-        </Text>
-      </YStack>
+      <ErrorDisplay
+        error={error}
+        onRetry={loadDelayInfo}
+        title="Failed to Load Delay Information"
+      />
     )
   }
 

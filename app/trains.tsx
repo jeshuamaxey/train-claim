@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { YStack, ScrollView, Text, ActivityIndicator } from 'tamagui'
 import { useRouter, useLocalSearchParams } from 'expo-router'
 import { ServiceCard } from '../components/ServiceCard'
+import { ErrorDisplay } from '../components/ErrorDisplay'
 import { Service, Station } from '../types'
 import { getServiceDetails } from '../lib/api/darwin'
 import { getOperatorByCode } from '../lib/operators'
@@ -93,14 +94,11 @@ export default function TrainsScreen() {
 
   if (error) {
     return (
-      <YStack flex={1} padding="$4" gap="$4">
-        <Text color="$red10" fontSize="$4">
-          {error}
-        </Text>
-        <Text fontSize="$3" color="$colorSubtitle">
-          Make sure you've configured your Darwin API credentials.
-        </Text>
-      </YStack>
+      <ErrorDisplay
+        error={error}
+        onRetry={loadServices}
+        title="Failed to Load Trains"
+      />
     )
   }
 

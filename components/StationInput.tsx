@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { YStack, Input, ScrollView, Text, Pressable } from 'tamagui'
+import { Pressable } from 'react-native'
+import { YStack, Input, ScrollView, Text } from 'tamagui'
 import { searchStations } from '../lib/stations'
 import { Station } from '../types'
 

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { YStack, XStack, Button, Text, Input, Pressable } from 'tamagui'
+import { YStack, XStack, Button, Text, Pressable } from 'tamagui'
 import { useRouter } from 'expo-router'
-import { Platform } from 'react-native'
 import { StationInput } from '../components/StationInput'
+import { DatePicker } from '../components/DatePicker'
 import { Station, Journey } from '../types'
 import { setStationsData, getRecentJourneys, saveRecentJourney } from '../lib/stations'
 import stationsData from '../data/stations.json'
@@ -98,31 +98,7 @@ export default function HomeScreen() {
           />
         </YStack>
 
-        <YStack gap="$2">
-          <Text fontSize="$4" fontWeight="600">
-            Date
-          </Text>
-          {Platform.OS === 'web' ? (
-            <input
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              style={{
-                padding: 12,
-                fontSize: 16,
-                borderWidth: 1,
-                borderColor: '#ccc',
-                borderRadius: 8,
-              }}
-            />
-          ) : (
-            <Input
-              value={date}
-              onChangeText={setDate}
-              placeholder="YYYY-MM-DD"
-            />
-          )}
-        </YStack>
+        <DatePicker value={date} onChange={setDate} label="Date" />
 
         <Button
           onPress={handleFindTrains}
