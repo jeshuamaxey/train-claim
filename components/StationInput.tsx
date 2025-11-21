@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import { Pressable } from 'react-native'
-import { YStack, Input, ScrollView, Text } from 'tamagui'
+import { useState, useEffect } from 'react'
+import { YStack, Input, ScrollView, Text, Pressable } from 'tamagui'
 import { searchStations } from '../lib/stations'
 import { Station } from '../types'
 
@@ -21,6 +20,16 @@ export function StationInput({
   const [results, setResults] = useState<Station[]>([])
   const [showResults, setShowResults] = useState(false)
 
+  // Sync query with value when value changes externally (e.g., from recent journeys)
+  useEffect(() => {
+    if (value?.name) {
+      setQuery(value.name)
+    } else if (!value && !query) {
+      // Clear query if value is cleared
+      setQuery('')
+    }
+  }, [value?.name])
+
   const handleSearch = (text: string) => {
     setQuery(text)
     if (text.length >= 2) {
@@ -39,16 +48,16 @@ export function StationInput({
   }
 
   const handleSelect = (station: Station) => {
-    onSelect(station)
     setQuery(station.name)
     setShowResults(false)
+    onSelect(station)
   }
 
   return (
     <YStack gap="$2" position="relative">
       <Input
         placeholder={placeholder}
-        value={query || value?.name || ''}
+        value={value?.name || query || ''}
         onChangeText={handleSearch}
         onFocus={() => {
           if (query.length >= 2) {
@@ -57,7 +66,7 @@ export function StationInput({
         }}
         onBlur={() => {
           // Delay hiding to allow tap on results
-          setTimeout(() => setShowResults(false), 200)
+          setTimeout(() => setShowResults(false), 300)
         }}
       />
       {showResults && results.length > 0 && (
@@ -78,6 +87,7 @@ export function StationInput({
             <Pressable
               key={station.crs}
               onPress={() => handleSelect(station)}
+              onPressIn={() => handleSelect(station)}
             >
               <YStack padding="$3" hoverStyle={{ backgroundColor: '$backgroundHover' }}>
                 <Text fontSize="$4" fontWeight="600">

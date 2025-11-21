@@ -62,8 +62,12 @@ export function DatePicker({ value, onChange, label }: DatePickerProps) {
           {label}
         </Text>
       )}
-      <Button onPress={() => setShowPicker(true)}>
-        <Text color="white">{formatDisplayDate(value)}</Text>
+      <Button 
+        onPress={() => setShowPicker(true)}
+        backgroundColor="$blue10"
+        pressStyle={{ opacity: 0.8 }}
+      >
+        <Text color="white" fontWeight="600">{formatDisplayDate(value)}</Text>
       </Button>
       {showPicker && (
         <DateTimePicker

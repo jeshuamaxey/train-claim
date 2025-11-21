@@ -30,30 +30,36 @@ export default function HomeScreen() {
 
   const handleFindTrains = async () => {
     if (!origin || !destination) {
+      console.log('Missing stations:', { origin, destination })
       return
     }
 
     setIsLoading(true)
     
-    // Save as recent journey
-    const journey: Journey = {
-      origin,
-      destination,
-      date,
-    }
-    await saveRecentJourney(journey)
-
-    router.push({
-      pathname: '/trains',
-      params: {
-        originCrs: origin.crs,
-        originName: origin.name,
-        destinationCrs: destination.crs,
-        destinationName: destination.name,
+    try {
+      // Save as recent journey
+      const journey: Journey = {
+        origin,
+        destination,
         date,
-      },
-    })
-    setIsLoading(false)
+      }
+      await saveRecentJourney(journey)
+
+      router.push({
+        pathname: '/trains',
+        params: {
+          originCrs: origin.crs,
+          originName: origin.name,
+          destinationCrs: destination.crs,
+          destinationName: destination.name,
+          date,
+        },
+      })
+    } catch (error) {
+      console.error('Error navigating to trains:', error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleRecentJourneySelect = (journey: Journey) => {
@@ -104,6 +110,8 @@ export default function HomeScreen() {
           onPress={handleFindTrains}
           disabled={!origin || !destination || isLoading}
           opacity={!origin || !destination || isLoading ? 0.5 : 1}
+          backgroundColor="$blue10"
+          pressStyle={{ opacity: 0.8 }}
         >
           <Text color="white" fontWeight="600">
             {isLoading ? 'Loading...' : 'Find Trains'}
