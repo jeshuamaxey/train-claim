@@ -38,3 +38,6 @@ yarn-error.*
 # API credentials (if stored locally)
 lib/api/credentials.ts
 scripts/stations.xml
+
+# Large data files
+data/stations-raw.json
