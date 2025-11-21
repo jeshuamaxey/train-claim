@@ -1,0 +1,99 @@
+[
+  {
+    "code": "NT",
+    "name": "Northern",
+    "delayRepayUrl": "https://www.northernrailway.co.uk/delay-repay",
+    "isNorthern": true
+  },
+  {
+    "code": "VT",
+    "name": "Avanti West Coast",
+    "delayRepayUrl": "https://www.avantiwestcoast.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "GW",
+    "name": "Great Western Railway",
+    "delayRepayUrl": "https://www.gwr.com/help-and-support/refunds-and-compensation/delay-repay"
+  },
+  {
+    "code": "SW",
+    "name": "South Western Railway",
+    "delayRepayUrl": "https://www.southwesternrailway.com/help-and-support/refunds-and-compensation/delay-repay"
+  },
+  {
+    "code": "EM",
+    "name": "East Midlands Railway",
+    "delayRepayUrl": "https://www.eastmidlandsrailway.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "TP",
+    "name": "TransPennine Express",
+    "delayRepayUrl": "https://www.tpexpress.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "XC",
+    "name": "CrossCountry",
+    "delayRepayUrl": "https://www.crosscountrytrains.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "LM",
+    "name": "West Midlands Railway",
+    "delayRepayUrl": "https://www.westmidlandsrailway.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "GN",
+    "name": "Great Northern",
+    "delayRepayUrl": "https://www.greatnorthernrail.com/help-and-support/delay-repay"
+  },
+  {
+    "code": "TL",
+    "name": "Thameslink",
+    "delayRepayUrl": "https://www.thameslinkrailway.com/help-and-support/delay-repay"
+  },
+  {
+    "code": "SE",
+    "name": "Southeastern",
+    "delayRepayUrl": "https://www.southeasternrailway.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "SN",
+    "name": "Southern",
+    "delayRepayUrl": "https://www.southernrailway.com/help-and-support/delay-repay"
+  },
+  {
+    "code": "LO",
+    "name": "London Overground",
+    "delayRepayUrl": "https://tfl.gov.uk/modes/london-overground/delay-repay"
+  },
+  {
+    "code": "CC",
+    "name": "c2c",
+    "delayRepayUrl": "https://www.c2c-online.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "GR",
+    "name": "LNER",
+    "delayRepayUrl": "https://www.lner.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "HX",
+    "name": "Heathrow Express",
+    "delayRepayUrl": "https://www.heathrowexpress.com/help-and-support/delay-repay"
+  },
+  {
+    "code": "HT",
+    "name": "Hull Trains",
+    "delayRepayUrl": "https://www.hulltrains.co.uk/help-and-support/delay-repay"
+  },
+  {
+    "code": "GC",
+    "name": "Grand Central",
+    "delayRepayUrl": "https://www.grandcentralrail.com/help-and-support/delay-repay"
+  },
+  {
+    "code": "LD",
+    "name": "Lumo",
+    "delayRepayUrl": "https://www.lumo.co.uk/help-and-support/delay-repay"
+  }
+]
+
